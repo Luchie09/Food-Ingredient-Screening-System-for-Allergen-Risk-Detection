@@ -538,12 +538,17 @@ not_assessed_sentence(0, []) :- !.
 not_assessed_sentence(Count, [Sentence]) :-
     format(atom(Sentence), '~d ingredient(s) could not be assessed (see Section 4).', [Count]).
 
+% -Physician Warning-
+print_physician_warning :-
+    print_paragraph(0, 'DIAGNOSIS WARNING: This cannot assess how severe an allergic reaction may be. To check severity, contact your physician or a certified immunologist.').
+
 % -Disclaimer-
 % Closing caution printed at the end of every report
 print_disclaimer :-
     rule_dash,
-    print_paragraph(0, 'This is a rule-based screening, not medical advice or a guarantee of food safety. Always check the product label and consult a healthcare professional.').
-
+    print_paragraph(0, 'This is a rule-based screening, not medical advice or a guarantee of food safety. Always check the product label and consult a healthcare professional.'),
+    nl,
+    print_physician_warning.
 
 % Allergen Filter Lines
 % Print one cautious line per user allergen

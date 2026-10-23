@@ -109,7 +109,6 @@ run_screen(Goal) :-
              Error,
              print_message(error, Error)).
 
-
 % Input Reading
 % Reads one line from the user and turns it into atoms
 % Typed names are cleaned later by canonical_name/2, so capitals and spaces are fine
